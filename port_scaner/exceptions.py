@@ -7,7 +7,7 @@
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
 class ScannerNotFound(Exception):
@@ -20,7 +20,7 @@ class ScannerNotFound(Exception):
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
 class ScannerRequestError(Exception):
@@ -33,5 +33,5 @@ class ScannerRequestError(Exception):
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
