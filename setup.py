@@ -43,10 +43,9 @@ setup(
 #https://github.com/ashrarhacka409/port_scaner/tree/main
     url='https://github.com/ashrarhacka409/port_scaner',
     author='a409',
-    author_chanell='t.me/ashrarhack_apps',
     entry_points={
         'console_scripts': [
-            'scanless = port_scaner.cli:main',
+            'port_scaner = port_scaner.cli:main',
         ]
     },
 ########################################
