@@ -6,7 +6,7 @@
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
 import os
@@ -25,7 +25,7 @@ setup(
     package_data = {
         'port_scaner.static': ['*.txt']
     },
-    version='1.09',
+    version='1.9',
     description='An port scaner.',
 ########################################
 #       tool name : port scaner        #
@@ -34,7 +34,7 @@ setup(
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
     long_description=long_description,
@@ -56,7 +56,7 @@ setup(
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
     install_requires=[
@@ -81,5 +81,5 @@ setup(
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
