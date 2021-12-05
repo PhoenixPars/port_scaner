@@ -1,10 +1,40 @@
 """port_scaner.cli"""
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 import crayons
 import argparse
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 from random import choice
 from port_scaner.core import Port_scaner
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 SCAN_LIST = '''\
 +----------------+--------------------------------------+
@@ -21,8 +51,26 @@ SCAN_LIST = '''\
 +----------------+--------------------------------------+'''
 VERSION = '1.09'
 
-sl = Port_scaner(cli_mode=True)
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
+sl = Port_scaner(cli_mode=True)
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def get_parser():
     parser = argparse.ArgumentParser(
@@ -65,7 +113,15 @@ def get_parser():
         help='debug mode (cli mode off & show network errors)'
     )
     return parser
-
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def display(results):
     for line in results.split('\n'):
@@ -80,31 +136,110 @@ def display(results):
                 line = crayons.yellow(line)
         print(line)
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def main():
     parser = get_parser()
     args = vars(parser.parse_args())
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     if args['version']:
         print(f'v{VERSION}')
         return
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     if args['list']:
         print(SCAN_LIST)
         return
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     if not args['target']:
         parser.print_help()
         return
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     if args['debug']:
         sl.cli_mode = False
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     target = args['target']
     scanner = args['scanner'].lower()
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     print(f'Running scanless v{VERSION}...\n')
     scanners = sl.scanners.keys()
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     if args['all']:
         for s in scanners:
@@ -113,11 +248,41 @@ def main():
             print()
         return
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     if args['random']:
         scanner = choice(list(scanners))
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     if scanner in scanners:
         print(f'{scanner}:')
         display(sl.scan(target, scanner=scanner)['raw'])
     else:
         print('Scanner not found, see --list to view all supported scanners.')
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
