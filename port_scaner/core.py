@@ -26,7 +26,7 @@ import requests
 ########################################
 
 from random import choice
-from scanless.exceptions import ScannerNotFound, ScannerRequestError
+from port_scaner.exceptions import ScannerNotFound, ScannerRequestError
 
 ########################################
 #       tool name : port scaner        #
@@ -144,7 +144,7 @@ def parse(output):
 #                       version : 1.09 #
 ########################################
 
-class Scanless:
+class Port_scaner:
     def __init__(self, cli_mode=False):
         self.cli_mode = cli_mode
         self.session = requests.Session()
