@@ -20,16 +20,16 @@ This is a Python 3 command-line utility and library for using websites that can 
 
 Do it up:
 ```
-$ pip install scanless --user
+$ pip install port_scaner --user
 ```
 
 ## CLI Usage
 
 ```
 $ scanless --help  
-usage: scanless [-h] [-v] [-t TARGET] [-s SCANNER] [-r] [-l] [-a]
+usage: port_scaner [-h] [-v] [-t TARGET] [-s SCANNER] [-r] [-l] [-a]
 
-scanless, an online port scan scraper.
+port_scaner   , an port scaner.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -56,8 +56,8 @@ $ scanless --list
 | yougetsignal   | https://www.yougetsignal.com         |
 +----------------+--------------------------------------+
 
-$ scanless -t scanme.nmap.org -s spiderip
-Running scanless v2.1.4...
+$ port_scaner -t scanme.nmap.org -s spiderip
+Running port_scaner v1.09...
 
 spiderip:
 PORT      STATE  SERVICE
@@ -82,8 +82,8 @@ PORT      STATE  SERVICE
 ## Library Usage
 
 ```
->>> import scanless
->>> sl = scanless.Scanless()
+>>> import port_scaner 
+>>> sl = port_scaner.Port_scaner()
 >>> output = sl.scan('scanme.nmap.org', scanner='hackertarget')
 >>> print(output['raw'])
 Starting Nmap 7.70 ( https://nmap.org ) at 2020-05-12 21:39 UTC
@@ -130,25 +130,25 @@ Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
 
 ## Docker
 
-**Note from the repo author:** I did not create, nor do I maintain Docker support or the Dockerfile for scanless. It was a nice community addition. If it's broken please open an issue or submit a pull request and I'll take a look. Thank you!
+**Note from the repo author:** I did not create, nor do I maintain Docker support or the Dockerfile for port_scaner. It was a nice community addition. If it's broken please open an issue or submit a pull request and I'll take a look. Thank you!
 
 ### Build
 
 To build the Docker image, run:
 ```shell
-$ docker build -t scanless .
+$ docker build -t port_scaner.
 ```
 
 ### Usage
 
 To use the Docker image previously created, run the following with whichever options you want like `--help`:
 ```
-$ docker run --rm -it scanless --help
+$ docker run --rm -it port_scaner --help
 ```
 
-If that long command is too troublesome, you can make an alias like so: `alias scanless="docker run --rm -it scanless"` and then run `scanless` as you would normally:
+If that long command is too troublesome, you can make an alias like so: `alias port_scaner="docker run --rm -it port_scaner"` and then run `port_scaner ` as you would normally:
 ```
-$ scanless --help
-$ scanless -l
-$ scanless -t scanme.nmap.org -s yougetsignal
+$ port_scaner --help
+$ port_scaner -l
+$ port_scaner -t scanme.nmap.org -s yougetsignal
 ```
