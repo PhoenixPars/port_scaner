@@ -17,13 +17,13 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='scanless',
+    name='port_scaner',
     packages=[
-        'scanless',
-        'scanless.static'
+        'port_scaner',
+        'port_scaner.static'
     ],
     package_data = {
-        'scanless.static': ['*.txt']
+        'port_scaner.static': ['*.txt']
     },
     version='1.09',
     description='An port scaner.',
@@ -46,7 +46,7 @@ setup(
     author_chanell='t.me/ashrarhack_apps',
     entry_points={
         'console_scripts': [
-            'scanless = scanless.cli:main',
+            'scanless = port_scaner.cli:main',
         ]
     },
 ########################################
