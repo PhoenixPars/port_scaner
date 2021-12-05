@@ -7,7 +7,7 @@
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                    ᵛᵉʳˢⁱᵒⁿ#
 ########################################
 
 import os
@@ -22,7 +22,7 @@ import requests
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
 from random import choice
@@ -35,7 +35,7 @@ from port_scaner.exceptions import ScannerNotFound, ScannerRequestError
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9 #
 ########################################
 
 URL_HACKERTARGET    = 'https://hackertarget.com/nmap-online-port-scanner/'
@@ -53,7 +53,7 @@ URL_YOUGETSIGNAL    = 'https://ports.yougetsignal.com/short-scan.php'
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 pwd = os.path.abspath(os.path.dirname(__file__))
@@ -69,7 +69,7 @@ USER_AGENTS = open(ua_file).read().splitlines()
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 OUTPUT_TEMPLATE = 'PORT      STATE  SERVICE\n{lines}'
@@ -82,7 +82,7 @@ NETWORK_ERROR_MSG = 'Network error, see --debug for details.'
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 def lookup_service(port):
@@ -97,7 +97,7 @@ def lookup_service(port):
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 def generate_output(raw_data):
@@ -117,7 +117,7 @@ def generate_output(raw_data):
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 def parse(output):
@@ -141,7 +141,7 @@ def parse(output):
 #   create by : #a409                  #
 #   my chanell: t.me/ashrarhack_apps   #
 #                                      #
-#                       version : 1.09 #
+#                       version : 1.9  #
 ########################################
 
 class Port_scaner:
