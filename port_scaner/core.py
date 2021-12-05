@@ -1,12 +1,42 @@
 """port_scaner.core"""
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 import os
 import re
 import bs4
 import requests
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 from random import choice
 from scanless.exceptions import ScannerNotFound, ScannerRequestError
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 URL_HACKERTARGET    = 'https://hackertarget.com/nmap-online-port-scanner/'
 URL_IPFINGERPRINTS  = 'https://www.ipfingerprints.com/scripts/getPortsInfo.php'
@@ -16,21 +46,59 @@ URL_T1SHOPPER       = 'http://www.t1shopper.com/tools/port-scan/result/'
 URL_VIEWDNS         = 'https://viewdns.info/portscan/?host={0}'
 URL_YOUGETSIGNAL    = 'https://ports.yougetsignal.com/short-scan.php'
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 pwd = os.path.abspath(os.path.dirname(__file__))
 nmap_file = os.path.join(pwd, 'static/nmap-services.txt')
 ua_file = os.path.join(pwd, 'static/user-agents.txt')
 NMAP_SERVICES = open(nmap_file).read().splitlines()
 USER_AGENTS = open(ua_file).read().splitlines()
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
 OUTPUT_TEMPLATE = 'PORT      STATE  SERVICE\n{lines}'
 NETWORK_ERROR_MSG = 'Network error, see --debug for details.'
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def lookup_service(port):
     for line in NMAP_SERVICES:
         if f'{port}/tcp' in line:
             return line.split()[0]
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def generate_output(raw_data):
     # raw_data = [(22, 'closed'), (23, 'open'), ...]
@@ -42,6 +110,15 @@ def generate_output(raw_data):
         lines.append(f'{port:<9} {state:<6} {service}')
     return OUTPUT_TEMPLATE.format(lines='\n'.join(lines))
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 def parse(output):
     parsed_output = list()
@@ -57,6 +134,15 @@ def parse(output):
             })
     return parsed_output
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
 class Scanless:
     def __init__(self, cli_mode=False):
@@ -72,13 +158,43 @@ class Scanless:
             'yougetsignal':    self.yougetsignal,
         }
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def scan(self, target, scanner='hackertarget'):
         if scanner not in self.scanners:
             raise ScannerNotFound(f'Unknown scanner, {scanner}.')
         return self.scanners[scanner](target)
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def _randomize_user_agent(self):
         self.session.headers['User-Agent'] = choice(USER_AGENTS)
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     def _request(self, url, payload=None, method='POST'):
         self._randomize_user_agent()
@@ -91,8 +207,28 @@ class Scanless:
             raise ScannerRequestError(e)
         return (response.content.decode('utf-8'), 'OK')
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def _return_dict(self, raw_output, parsed_output):
         return {'raw': raw_output, 'parsed': parsed_output}
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     def hackertarget(self, target):
         payload = {
@@ -109,6 +245,16 @@ class Scanless:
         raw_output = output.replace('\\n', '\n').strip()
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     def ipfingerprints(self, target):
         payload = {
@@ -127,6 +273,16 @@ class Scanless:
         raw_output = output.replace('\\n','\n').replace('\\/','/')[36:-46].strip()
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     def spiderip(self, target):
         ports = [
@@ -149,6 +305,16 @@ class Scanless:
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def standingtech(self, target):
         ports = [
             21, 22, 23, 25, 80, 110, 139, 143, 443, 445, 1433, 3306, 3389, 5900
@@ -169,6 +335,16 @@ class Scanless:
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def t1shopper(self, target):
         ports = [
             21, 23, 25, 80, 110, 139, 445, 1433, 1521, 1723, 3306, 3389,
@@ -188,6 +364,16 @@ class Scanless:
         raw_output = generate_output(raw_data)
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
 
     def viewdns(self, target):
         ports = [
@@ -210,6 +396,16 @@ class Scanless:
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
 
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
+
     def yougetsignal(self, target):
         ports = [
             21, 22, 23, 25, 53, 80, 110, 115, 135, 139, 143, 194, 443, 445,
@@ -230,3 +426,13 @@ class Scanless:
         raw_output = generate_output(raw_data)
         parsed_output = parse(raw_output)
         return self._return_dict(raw_output, parsed_output)
+
+########################################
+#       tool name : port scaner        #
+#  ----------------------------------  #
+#                                      #
+#   create by : #a409                  #
+#   my chanell: t.me/ashrarhack_apps   #
+#                                      #
+#                       version : 1.09 #
+########################################
